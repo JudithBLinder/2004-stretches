@@ -22,8 +22,67 @@ examples:
 1994 // MCMXCIV
 */
 
-const romanInteger = () => {
-  //YOUR CODE HERE
+const romanInteger = (num) => {
+  let romanStr = '';
+
+  if (num < 1 || num > 3999) {
+    throw '';
+  };
+
+  const thousands = Math.floor(num / 1000);
+  num = Math.abs(thousands*1000 - num);
+  const hundreds  = Math.floor(num / 100);
+  num = Math.abs(hundreds*100 - num);
+  const tens      = Math.floor(num / 10);
+  num = Math.abs(thousands*10 - num);
+  const ones      = num % 10;
+
+  if (thousands != 0) {
+    romanStr += 'M'.repeat(thousands);
+  }
+  if (hundreds != 0) {
+    if (hundreds < 4 && hundreds > 0){
+      romanStr += 'C'.repeat(hundreds);
+    } else if (hundreds == 4) {
+      romanStr += 'CD';
+    } else if (hundreds == 5){
+      romanStr += 'D';
+    } else if (hundreds == 9){
+      romanStr += 'CM';
+    } else {
+      romanStr += 'D' + 'C'.repeat(hundreds - 5);
+    };
+  }
+  
+  if (tens != 0) {
+    if (tens < 4 && tens > 0){
+      romanStr += 'X'.repeat(tens);
+    } else if (tens == 4) {
+      romanStr += 'XL';
+    } else if (tens == 5){
+      romanStr += 'L';
+    } else if (tens == 9){
+      romanStr += 'XC';
+    } else {
+      romanStr += 'L' + 'X'.repeat(tens - 5);
+    };
+  }
+  
+  if (ones != 0) {
+    if (ones < 4  && ones > 0){
+      romanStr += 'I'.repeat(ones);
+    } else if (ones == 4) {
+      romanStr += 'IV';
+    } else if (ones == 5){
+      romanStr += 'V';
+    } else if (ones == 9){
+      romanStr += 'IX';
+    } else {
+      romanStr += 'V' + 'I'.repeat(ones - 5);
+    };
+  }
+  
+  return romanStr;
 };
 
 module.exports = { romanInteger };
