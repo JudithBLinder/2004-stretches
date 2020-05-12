@@ -6,11 +6,13 @@ const fizzBuzz = (num) => {
   }
 
   for (let i=0; i<num; i++) {
-    if ((i + 1) % 3 ==0) {
+    if ((i + 1) % 3 == 0) {
       returnedArray.push('Fizz');
-    } else if ((i + 1) % 5 ==0) {
+    } else if ((i + 1) % 5 == 0) {
       returnedArray.push('Buzz');
-    } else {
+    } else if ((i + 1) % 5 == 0 && (i + 1) % 3 == 0) {
+      returnedArray.push('FizzBuzz');
+    }else {
       returnedArray.push(i+1);
     };
   }
