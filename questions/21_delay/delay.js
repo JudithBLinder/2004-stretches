@@ -1,5 +1,10 @@
 const delay = (str, time) => {
-  //Your code here
+  
+  let x = setTimeout(() => {
+    console.log(str);
+  }, time);
+
+  return str;
 };
 
 module.exports = { delay };
