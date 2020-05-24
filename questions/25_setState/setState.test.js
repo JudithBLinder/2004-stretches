@@ -47,10 +47,11 @@ describe('setState', () => {
         }));
 
       const randomValComponent = new StatefulThing(initialState);
+      console.log(randomValComponent, 'befor');
       newStates.forEach((newState) => {
         randomValComponent.setState(newState);
       });
-
+      console.log(randomValComponent, 'after');
       for (let i = newStates.length - 1; i > 0; i -= 1) {
         randomValComponent.goBack();
         expect(randomValComponent.state).toEqual(newStates[i - 1]);
