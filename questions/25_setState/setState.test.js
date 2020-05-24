@@ -36,7 +36,7 @@ describe('setState', () => {
     expect(Object.is(fullStackLocation, newLocation)).toBe(false);
   });
 
-  xdescribe('extra credit', () => {
+  describe('extra credit', () => {
     test('create a method goBack() that restores the previous state ', () => {
       const rng100 = () => Math.floor(Math.random() * 101);
       const initialState = { val: 1 };
@@ -47,7 +47,7 @@ describe('setState', () => {
         }));
 
       const randomValComponent = new StatefulThing(initialState);
-      newStates.forEach(newState => {
+      newStates.forEach((newState) => {
         randomValComponent.setState(newState);
       });
 
