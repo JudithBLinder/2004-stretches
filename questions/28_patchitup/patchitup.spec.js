@@ -1,4 +1,4 @@
-const {} = require('./patchitup');
+const { Array } = require('./patchitup');
 
 describe('"monkey-patched" Array class functionality', () => {
   it('"countBy" is added to the Array class', () => {

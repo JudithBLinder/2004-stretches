@@ -7,3 +7,26 @@
 // - Also NB: repl.it doesn't let you monkey patch! but the chrome console does.
 
 //code goes here
+
+// eslint-disable-next-line no-extend-native
+Array.prototype.countBy = function (callBack) {
+  let objOut = {};
+  this.forEach((el) => {
+    if (callBack) {
+      let newEl = callBack(el);
+      if (!objOut.hasOwnProperty(newEl)) {
+        objOut[newEl] = 1;
+      } else {
+        objOut[newEl] += 1;
+      }
+    } else if (!objOut.hasOwnProperty(el)) {
+      objOut[el] = 1;
+    } else {
+      objOut[el] += 1;
+    }
+  });
+
+  return objOut;
+};
+
+module.exports = { Array };
