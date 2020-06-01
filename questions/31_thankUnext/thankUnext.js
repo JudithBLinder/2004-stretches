@@ -17,3 +17,8 @@
 // YOUR CODE (intentionally blank):
 
 // no export statement required
+
+Array.prototype.next = function () {
+  console.log(arguments);
+  console.log(this);
+};
