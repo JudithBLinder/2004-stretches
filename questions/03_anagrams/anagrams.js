@@ -2,7 +2,14 @@
 // Return a boolean
 
 const checkAnagrams = (str1, str2) => {
-  //YOUR CODE
+  let arr1 = str1.split('').sort().join('');
+  let arr2 = str2.split('').sort().join('');
+
+  if (arr1 === arr2) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 module.exports = { checkAnagrams };
