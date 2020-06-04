@@ -13,18 +13,17 @@
 const directory = (objIn) => {
   let objOut = {};
 
-  const findPath = function (input) {
-    let keys = Object.keys(input);
-    if (keys === []) {
-      return input;
+  const findPath = function (input, add) {
+    if (typeof input != 'object' || Array.isArray(input)) {
+      objOut[add.slice(1)] = input;
     } else {
-      return findPath();
+      for (let key in input) {
+        findPath(input[key], add + '/' + key);
+      }
     }
   };
 
-  for (let key in objIn) {
-  }
-
+  findPath(objIn, '');
   return objOut;
 };
 
