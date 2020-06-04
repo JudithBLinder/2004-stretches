@@ -17,7 +17,15 @@ ex 2.
 */
 
 const keysToRooms = (rooms) => {
-  //YOUR CODE HERE
+  for (let i = 0; i < rooms.length - 1; i++) {
+    console.log(rooms, rooms[i].includes(i + 1));
+    if (!rooms[i].includes(i + 1)) {
+      return false;
+    } else {
+      continue;
+    }
+  }
+  return true;
 };
 
 module.exports = { keysToRooms };
