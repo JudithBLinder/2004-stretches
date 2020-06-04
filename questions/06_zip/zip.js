@@ -8,7 +8,17 @@ zip([
 */
 
 function zip(objs) {
-  // YOUR CODE
+  let objOut = {};
+  for (let i = 0; i < objs.length; i++) {
+    for (let key in objs[i]) {
+      if (objOut.hasOwnProperty(key)) {
+        objOut[key] += objs[i][key];
+      } else {
+        objOut[key] = objs[i][key];
+      }
+    }
+  }
+  return objOut;
 }
 
 module.exports = { zip };
