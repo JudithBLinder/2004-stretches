@@ -19,6 +19,13 @@
 // no export statement required
 
 Array.prototype.next = function () {
-  console.log(arguments);
-  console.log(this);
+  if (!this.nextIdx) {
+    this.nextIdx = 0;
+  }
+  console.log(this[this.nextIdx]);
+  this.nextIdx++;
+  if (this.nextIdx > this.length - 1) {
+    this.nextIdx = 0;
+  }
+  return this;
 };

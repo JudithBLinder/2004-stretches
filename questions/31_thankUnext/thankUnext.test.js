@@ -23,7 +23,7 @@ describe('thank u next', () => {
       expect(consoleLogSpy.mock.calls[idx][0]).toEqual(word);
     });
   });
-  xdescribe('extra credit', () => {
+  describe('extra credit', () => {
     let randomNumsArr;
     const rounds = 5;
     beforeEach(() => {
