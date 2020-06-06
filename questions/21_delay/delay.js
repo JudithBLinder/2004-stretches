@@ -1,9 +1,5 @@
-const delay = (str, time) => {
-  
-  let x = setTimeout(() => {
-    console.log(str);
-  }, time);
-
+const delay = async (str, time) => {
+  setTimeout(() => {}, time);
   return str;
 };
 
