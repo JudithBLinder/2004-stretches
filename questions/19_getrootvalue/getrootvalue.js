@@ -19,23 +19,28 @@
 //getrootvalue(object,40)=>'one'
 //returns -1 if value isn't found
 
-const getrootvalue = (objIn, val) => {
-    let root = '';
+const getrootvalue = (obj, val) => {
+  let result = '';
 
-    const findValue = (objIn) => {
-        if (Object.keys[objIn] === []) {
-            return '-1'
-        };
-        
-        for (let key in objIn) {
-            if (Array.isArray(objIn[key])) {
-                for (let i=0;)
-            }
-        }
-
+  const findValue = (objIn, rootIn, valIn) => {
+    if (Array.isArray(objIn)) {
+      if (objIn.includes(valIn)) {
+        result = rootIn;
+      }
     }
 
-    return root;
+    // eslint-disable-next-line guard-for-in
+    for (let key in objIn) {
+      findValue(objIn[key], rootIn + key + '/', valIn);
+    }
+  };
+
+  findValue(obj, '', val);
+  if (result) {
+    return result.split('/')[0];
+  } else {
+    return null;
+  }
 };
 
 module.exports = { getrootvalue };
