@@ -1,14 +1,13 @@
-const decypher = (strIn) => {
-  let wordArray = strIn.split('');
-  let newArray = [];
-  let charCode = '';
+const decypher = (word) => {
+  let objOut = {
+    code: '',
+    first: '',
+    middle: '',
+    last: '',
+  };
 
-  for (let i = 0; i < wordArray.length; i++) {
-    console.log(parseInt(0, 10).toString());
-    if (parseInt(wordArray[i], 10)) {
-      charCode += wordArray[i].toString();
-    }
+  for (let i = 0; i < word.length; i++) {
+    let char = word.charAt(i);
   }
-  console.log(charCode);
 };
 module.exports = { decypher };
