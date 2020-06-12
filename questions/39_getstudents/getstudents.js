@@ -6,7 +6,7 @@ const axios = require('./axios');
 
 const getStudent = (name) => {
   let students = [];
-  let student = {};
+  let studentOut = {};
   if (typeof name != 'string') {
     throw new Error('invalid input!');
   }
@@ -15,10 +15,22 @@ const getStudent = (name) => {
   axios
     .get(studentsUrl)
     .then((data) => {
-      data.json();
-      console.log(data);
+      students = Object.values(data.data);
+      console.log(students);
+      students.forEach((student) => {
+        console.log(name, student.name);
+        if (student.name === name) {
+          studentOut = {
+            count: students.length,
+            student: student,
+          };
+        }
+      });
     })
-    .then((data) => (students = data));
+    .then(() => {
+      return studentOut;
+    })
+    .catch((err) => console.log(err));
 };
 
 module.exports = { getStudent };
