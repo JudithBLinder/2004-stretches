@@ -4,8 +4,14 @@
 // Jest documentation: https://github.com/sapegin/jest-cheat-sheet
 // submit the stretch with solution code and test specs passing
 
-const makeyourown = () => {
-  console.log('make your own stretch!');
+const makeyourown = (strIn) => {
+  // correct name
+
+  if (typeof strIn !== 'string') {
+    throw new Error('Invalid Input!');
+  }
+
+  let str = strIn.toLowerCase();
 };
 
 module.exports = { makeyourown };
