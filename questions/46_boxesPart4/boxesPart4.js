@@ -30,6 +30,20 @@ class Box {
     return setTimeout(() => this.unpack(), dur);
   }
   //*****YOUR CODE STARTS HERE******
+  expand(num, boxes) {
+    for (let i = 0; i < boxes.length; i++) {
+      this.contents.push(new Box(boxes[i][0], boxes[i][1]));
+    }
+  }
+  loot(idx) {
+    if (idx < this.contents.length) {
+      let box = this.contents[idx];
+      console.log(box);
+      return box.color;
+    } else {
+      return this.contents[0].color;
+    }
+  }
 }
 
 module.exports = { Box };
