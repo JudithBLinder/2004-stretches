@@ -39,9 +39,9 @@ class Box {
     if (idx < this.contents.length) {
       let box = this.contents[idx];
       console.log(box);
-      return box.color;
+      return box;
     } else {
-      return this.contents[0].color;
+      return this.contents[0];
     }
   }
 }
