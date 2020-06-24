@@ -10,13 +10,16 @@ const recordDepth = (objIn) => {
 
   const insertDepth = (obj, depth) => {
     obj.depth = depth;
-    let keys = Object.keys(obj);
-  
-    for (let i=0; i<keys.length; i++)
+
+    for (let key in obj) {
+      if (typeof obj[key] === 'object') {
+        insertDepth(obj[key], depth + 1);
+      }
     }
   };
 
   insertDepth(objIn, 0);
+  return objIn;
 };
 
 module.exports = { recordDepth };
