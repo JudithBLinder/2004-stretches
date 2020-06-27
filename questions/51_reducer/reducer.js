@@ -19,8 +19,22 @@ const initialState = [
 const reducer = (state = initialState, action) => {
   //ADD YOUR CODE HERE
   switch (action.type) {
+    case types.ADD_TODO:
+      console.log(action);
+      return {
+        ...state,
+        text: action.text,
+      };
+    case types.DELETE_TODO:
+      return state.filter((todo) => todo.id != action.id);
+    case types.COMPLETE_TODO:
+      return {
+        ...state,
+        item: action.item,
+      };
+
     default:
-      return;
+      return state;
   }
 };
 
