@@ -20,18 +20,20 @@ const reducer = (state = initialState, action) => {
   //ADD YOUR CODE HERE
   switch (action.type) {
     case types.ADD_TODO:
-      console.log(action);
-      return {
+      return [
+        { text: action.text, completed: false, id: state.length },
         ...state,
-        text: action.text,
-      };
+      ];
     case types.DELETE_TODO:
       return state.filter((todo) => todo.id != action.id);
     case types.COMPLETE_TODO:
-      return {
-        ...state,
-        item: action.item,
-      };
+      return state.reduce((acc, curr) => {
+        if (curr.id == action.id) {
+          curr.completed = true;
+        }
+        acc.push(curr);
+        return acc;
+      }, []);
 
     default:
       return state;
