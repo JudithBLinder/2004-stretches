@@ -3,7 +3,6 @@ const balanced = (arrIn) => {
   let sum2 = arrIn.reduce((acc, curr) => acc + curr, 0) - arrIn[0];
 
   for (let i = 0; i < arrIn.length; i++) {
-    console.log(sum1, sum2, i);
     if (sum1 === sum2) {
       return i;
     }
