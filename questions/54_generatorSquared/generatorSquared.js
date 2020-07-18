@@ -4,4 +4,6 @@
 
 //write your function here
 
+const sqauredGen = () => {};
+
 module.exports = { sqauredGen };
